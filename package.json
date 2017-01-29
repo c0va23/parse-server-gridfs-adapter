@@ -4,7 +4,7 @@
   "description": "MongoDB GridFS adapter for parse-files-utils",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "parse-server",
@@ -12,5 +12,8 @@
     "adapter"
   ],
   "author": "c0va23@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
 }
