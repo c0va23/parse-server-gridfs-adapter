@@ -1,5 +1,7 @@
 'use strict';
 
+const MongoClient = require('mongodb').MongoClient;
+
 function MongoGridAdapter(options) {
   options = options || {};
   this._mongoURL = options.mongoURL;
