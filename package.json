@@ -4,7 +4,7 @@
   "description": "MongoDB GridFS adapter for parse-files-utils",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "standard && mocha"
   },
   "keywords": [
     "parse-server",
@@ -14,7 +14,8 @@
   "author": "c0va23@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "standard": "^8.6.0"
   },
   "dependencies": {
     "mongodb": "^2.2.22"
