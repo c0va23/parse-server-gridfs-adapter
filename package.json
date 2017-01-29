@@ -1,0 +1,16 @@
+{
+  "name": "parse-server-gridfs-adapter",
+  "version": "0.1.0",
+  "description": "MongoDB GridFS adapter for parse-files-utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "parse-server",
+    "gridfs",
+    "adapter"
+  ],
+  "author": "c0va23@gmail.com",
+  "license": "MIT"
+}
