@@ -3,13 +3,13 @@
 const MongoClient = require('mongodb').MongoClient
 const GridFSBucket = require('mongodb').GridFSBucket
 
-const MONGODB_URL = 'mongodb://mongo/parse_server_gridfs_adapter'
+const MONGODB_URI = process.env.MONGODB_URI
 
 let _connectionPromise
 
 function connection () {
   if (undefined === _connectionPromise) {
-    _connectionPromise = MongoClient.connect(MONGODB_URL)
+    _connectionPromise = MongoClient.connect(MONGODB_URI)
   }
   return _connectionPromise
 }
@@ -54,7 +54,7 @@ function createFile (filename, dataBuffer) {
 }
 
 module.exports = {
-  MONGODB_URL: MONGODB_URL,
+  MONGODB_URI: MONGODB_URI,
   clearFiles: clearFiles,
   fileExist: fileExist,
   createFile: createFile

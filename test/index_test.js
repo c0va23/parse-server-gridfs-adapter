@@ -58,7 +58,7 @@ describe('MongoGridAdapter', function () {
 
     context('when adapter initialized is successfully', function () {
       const adapter = new MongoGridAdapter({
-        mongoURL: MongodbHelper.MONGODB_URL
+        mongoURL: MongodbHelper.MONGODB_URI
       })
 
       context('when file is exist', function () {
