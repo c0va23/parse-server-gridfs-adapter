@@ -8,7 +8,4 @@ services:
 env:
 - MONGODB_URI=mongodb://127.0.0.1/parse-server-gridfs-adapter-test
 
-before_script:
-  - npm install
-
 script: npm test
