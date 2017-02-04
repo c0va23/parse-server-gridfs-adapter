@@ -33,8 +33,11 @@ function clearFiles () {
     .then(results => Promise.all(results))
 }
 
-function fileExist (filename) {
-  return bucket().then(bucket => bucket.find({filename: filename}).count())
+function fileExist (filename, contentType) {
+  let query = undefined !== contentType
+    ? {filename: filename, contentType: contentType}
+    : {filename: filename}
+  return bucket().then(bucket => bucket.find(query).count())
                  .then(count => count === 1)
 }
 

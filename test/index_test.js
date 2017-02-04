@@ -85,6 +85,12 @@ describe('MongoGridAdapter', function () {
                         .then(() => MongodbHelper.fileExist('file'))
                         .then(exist => assert(exist, 'File not created'))
         })
+
+        it('create file into mongo with contentType', function () {
+          return adapter.createFile('file', 'data', 'text/plain')
+                        .then(() => MongodbHelper.fileExist('file', 'text/plain'))
+                        .then(exist => assert(exist, 'File not created'))
+        })
       })
     })
   })

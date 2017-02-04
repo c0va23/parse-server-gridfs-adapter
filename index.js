@@ -33,13 +33,15 @@ MongoGridAdapter.prototype._fileExist = function (filename) {
 }
 
 MongoGridAdapter.prototype.createFile =
-  function (filename, dataBuffer) {
+  function (filename, dataBuffer, contentType) {
     return this._fileExist(filename)
       .then(exist => {
         if (!exist) return this._bucket()
         return Promise.reject(new Error(`File "${filename}" already exist`))
       })
-      .then(bucket => bucket.openUploadStream(filename))
+      .then(bucket =>
+        bucket.openUploadStream(filename, {contentType: contentType})
+      )
       .then(writeStream =>
         new Promise(function (resolve, reject) {
           writeStream.once('finish', resolve)
