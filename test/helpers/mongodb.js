@@ -38,8 +38,21 @@ function fileExist (filename) {
                  .then(count => count === 1)
 }
 
+function createFile (filename, dataBuffer) {
+  return bucket()
+    .then(bucket => bucket.openUploadStream(filename))
+    .then(writeStream =>
+      new Promise(function (resolve, reject) {
+        writeStream.once('finish', resolve)
+        writeStream.once('error', reject)
+        writeStream.end(dataBuffer)
+      })
+    )
+}
+
 module.exports = {
   MONGODB_URL: MONGODB_URL,
   clearFiles: clearFiles,
-  fileExist: fileExist
+  fileExist: fileExist,
+  createFile: createFile
 }

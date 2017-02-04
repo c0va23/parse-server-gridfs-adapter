@@ -62,7 +62,17 @@ describe('MongoGridAdapter', function () {
       })
 
       context('when file is exist', function () {
-        it('result is rejected')
+        const fileName = 'filename'
+        const buffer = 'any data'
+
+        beforeEach(() => MongodbHelper.createFile(fileName, buffer))
+
+        it('result is rejected', function () {
+          return new Promise(function (resolve, reject) {
+            return adapter.createFile(fileName, buffer)
+              .then(reject).catch(resolve)
+          })
+        })
       })
 
       context('when file not exist', function () {
